@@ -450,23 +450,16 @@
       overflow: hidden; box-shadow: var(--shadow-lg);
     }
     .instructor-photo {
-      /* SWAP: Replace with <img src="instructor.jpg" alt="Name"> */
+      /* SWAP: Replace with <img src="instructor.jpg" alt="Name" style="width:100%;height:300px;object-fit:cover;display:block"> */
       height: 300px; overflow: hidden;
       background: #374151;
       display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.35); font-size: 12px;
+      color: rgba(255,255,255,.25); font-size: 12px;
       font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
     }
-    .instructor-card.featured .instructor-photo { height: 300px; background: #374151; }
-    .instructor-info { padding: 24px 26px 28px; }
-    .instructor-badge {
-      display: inline-block; background: #fef3c7; color: #92400e;
-      padding: 3px 12px; border-radius: 20px; font-size: 12px;
-      font-weight: 700; margin-bottom: 10px;
-    }
-    .instructor-badge.coach { background: var(--blue-light); color: var(--blue-dark); }
-    .instructor-name  { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 3px; }
-    .instructor-title { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: .4px; }
+    .instructor-info  { padding: 24px 26px 28px; }
+    .instructor-name  { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
+    .instructor-title { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .4px; }
     .instructor-bio   { font-size: 14px; color: var(--gray); line-height: 1.7; }
 
     /* ============================================================
@@ -1035,7 +1028,7 @@
 
 
 <!-- ============================================================
-     PROGRAMS — 3 CARDS
+     PROGRAMS — 5 CARDS
 ============================================================ -->
 <section id="programs">
   <div class="section-header reveal">
@@ -1047,27 +1040,27 @@
   <div class="programs-grid">
 
     <article class="program-card reveal">
-      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[PROGRAM 1 NAME] at [SCHOOL NAME]"> -->
-      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[PROGRAM 1 NAME] at [SCHOOL NAME]" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM 1 PHOTO]</span></div>
       <div class="program-body">
-        <span class="program-tag">Ages 4–12</span>
+        <span class="program-tag">Ages 4–7</span>
         <h3>[PROGRAM 1 NAME]</h3>
-        <p>Fun, safe [MARTIAL ART] classes that build discipline, confidence, and self-defense skills. Every belt is earned — our standards are real.</p>
+        <p>Our gentlest intro to martial arts — designed for the youngest students. Short, fun classes build listening skills, coordination, and confidence in a safe environment.</p>
         <div class="program-meta">
           <span>[PROGRAM 1 DAYS]</span>
-          <span>60-min classes</span>
+          <span>30-min classes</span>
         </div>
         <a href="program-1.html" class="btn btn-primary">Learn More</a>
       </div>
     </article>
 
     <article class="program-card reveal">
-      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[PROGRAM 2 NAME] at [SCHOOL NAME]"> -->
-      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[PROGRAM 2 NAME] at [SCHOOL NAME]" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM 2 PHOTO]</span></div>
       <div class="program-body">
-        <span class="program-tag">Ages 13 &amp; Up</span>
+        <span class="program-tag">Ages 8–12</span>
         <h3>[PROGRAM 2 NAME]</h3>
-        <p>Build real self-defense skills, get fit, and develop mental toughness. No experience required — beginner-friendly and welcoming to all levels.</p>
+        <p>Structured classes that teach real striking, kicking, and self-defense while reinforcing discipline, respect, and focus. Belt progression keeps kids motivated.</p>
         <div class="program-meta">
           <span>[PROGRAM 2 DAYS]</span>
           <span>60-min classes</span>
@@ -1076,83 +1069,48 @@
       </div>
     </article>
 
-    <!-- NEW PROGRAM: Little Dragons -->
     <article class="program-card reveal">
-      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="Little Dragons at [SCHOOL NAME]"> -->
-      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
-      <div class="program-body">
-        <span class="program-tag">Ages 4–7</span>
-        <h3>Little Dragons</h3>
-        <p>Our gentlest intro to martial arts — designed for the youngest students. Short, fun classes build listening skills, coordination, and confidence in a safe environment.</p>
-        <div class="program-meta">
-          <span>[DAYS]</span>
-          <span>30-min classes</span>
-        </div>
-        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
-      </div>
-    </article>
-
-    <!-- NEW PROGRAM: Kids Karate -->
-    <article class="program-card reveal">
-      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="Kids Karate at [SCHOOL NAME]"> -->
-      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
-      <div class="program-body">
-        <span class="program-tag">Ages 8–12</span>
-        <h3>Kids Karate</h3>
-        <p>Structured classes that teach real striking, kicking, and self-defense while reinforcing discipline, respect, and focus. Belt progression keeps kids motivated.</p>
-        <div class="program-meta">
-          <span>[DAYS]</span>
-          <span>60-min classes</span>
-        </div>
-        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
-      </div>
-    </article>
-
-    <!-- NEW PROGRAM: Teen Karate -->
-    <article class="program-card reveal">
-      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="Teen Karate at [SCHOOL NAME]"> -->
-      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[PROGRAM 3 NAME] at [SCHOOL NAME]" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM 3 PHOTO]</span></div>
       <div class="program-body">
         <span class="program-tag">Ages 13–17</span>
-        <h3>Teen Karate</h3>
+        <h3>[PROGRAM 3 NAME]</h3>
         <p>Teens build real-world confidence, mental toughness, and self-defense skills in a structured environment that holds them to high standards — inside and outside the dojo.</p>
         <div class="program-meta">
-          <span>[DAYS]</span>
+          <span>[PROGRAM 3 DAYS]</span>
           <span>60-min classes</span>
         </div>
-        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
+        <a href="program-3.html" class="btn btn-primary">Learn More</a>
       </div>
     </article>
 
-    <!-- NEW PROGRAM: Adult Karate -->
     <article class="program-card reveal">
-      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="Adult Karate at [SCHOOL NAME]"> -->
-      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[PROGRAM 4 NAME] at [SCHOOL NAME]" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM 4 PHOTO]</span></div>
       <div class="program-body">
         <span class="program-tag">Ages 18 &amp; Up</span>
-        <h3>Adult Karate</h3>
+        <h3>[PROGRAM 4 NAME]</h3>
         <p>Get fit, relieve stress, and develop practical self-defense skills. All experience levels welcome — from complete beginners to returning martial artists.</p>
         <div class="program-meta">
-          <span>[DAYS]</span>
+          <span>[PROGRAM 4 DAYS]</span>
           <span>60-min classes</span>
         </div>
-        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
+        <a href="program-4.html" class="btn btn-primary">Learn More</a>
       </div>
     </article>
 
-    <!-- NEW PROGRAM: BJJ -->
     <article class="program-card reveal">
-      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="BJJ at [SCHOOL NAME]"> -->
-      <div class="program-photo"><span class="program-photo-label">[PROGRAM PHOTO]</span></div>
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[PROGRAM 5 NAME] at [SCHOOL NAME]" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block"> -->
+      <div class="program-photo"><span class="program-photo-label">[PROGRAM 5 PHOTO]</span></div>
       <div class="program-body">
         <span class="program-tag">All Ages</span>
-        <h3>BJJ</h3>
+        <h3>[PROGRAM 5 NAME]</h3>
         <p>Brazilian Jiu-Jitsu — the art of ground fighting and submission. Learn takedowns, sweeps, and submissions in a technical, ego-free environment. Gi and no-gi available.</p>
         <div class="program-meta">
-          <span>[DAYS]</span>
+          <span>[PROGRAM 5 DAYS]</span>
           <span>60-min classes</span>
         </div>
-        <a href="#" class="btn btn-primary" onclick="openModal('modal-trial');return false">Learn More</a>
+        <a href="program-5.html" class="btn btn-primary">Learn More</a>
       </div>
     </article>
 
@@ -1161,10 +1119,10 @@
 
 
 <!-- ============================================================
-     MEET THE INSTRUCTORS — NEW SECTION
-     SWAP: Replace [NAME], [TITLE / RANK], and [BIO] for each instructor.
+     MEET THE INSTRUCTORS — 4 CARDS
      SWAP: Replace .instructor-photo div with <img> once real photos are ready.
-     Up to 4 instructor cards supported — uncomment the 4th card below to add one.
+     SWAP: Fill in [INSTRUCTOR X NAME], [INSTRUCTOR X TITLE], [INSTRUCTOR X BIO].
+     Remove unused cards if the school has fewer than 4 instructors.
 ============================================================ -->
 <section id="instructors">
   <div class="section-header reveal">
@@ -1175,54 +1133,45 @@
 
   <div class="instructors-grid">
 
-    <!-- INSTRUCTOR 1: Head Coach -->
-    <article class="instructor-card featured reveal">
-      <!-- SWAP: Replace this div with <img src="[photo]" alt="Head Coach [NAME]"> -->
-      <div class="instructor-photo" aria-label="[INSTRUCTOR PHOTO]">[INSTRUCTOR PHOTO]</div>
+    <article class="instructor-card reveal">
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[INSTRUCTOR 1 NAME]" style="width:100%;height:300px;object-fit:cover;display:block"> -->
+      <div class="instructor-photo">[INSTRUCTOR 1 PHOTO]</div>
       <div class="instructor-info">
-        <span class="instructor-badge">Head Coach</span>
-        <div class="instructor-name">Head Coach [NAME]</div>
-        <div class="instructor-title">[TITLE / RANK]</div>
-        <p class="instructor-bio">[BIO]</p>
+        <div class="instructor-name">[INSTRUCTOR 1 NAME]</div>
+        <div class="instructor-title">[INSTRUCTOR 1 TITLE]</div>
+        <p class="instructor-bio">[INSTRUCTOR 1 BIO]</p>
       </div>
     </article>
 
-    <!-- INSTRUCTOR 2: Coach -->
     <article class="instructor-card reveal">
-      <!-- SWAP: Replace this div with <img src="[photo]" alt="Coach [NAME]"> -->
-      <div class="instructor-photo" aria-label="[INSTRUCTOR PHOTO]">[INSTRUCTOR PHOTO]</div>
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[INSTRUCTOR 2 NAME]" style="width:100%;height:300px;object-fit:cover;display:block"> -->
+      <div class="instructor-photo">[INSTRUCTOR 2 PHOTO]</div>
       <div class="instructor-info">
-        <span class="instructor-badge coach">Coach</span>
-        <div class="instructor-name">Coach [NAME]</div>
-        <div class="instructor-title">[TITLE / RANK]</div>
-        <p class="instructor-bio">[BIO]</p>
+        <div class="instructor-name">[INSTRUCTOR 2 NAME]</div>
+        <div class="instructor-title">[INSTRUCTOR 2 TITLE]</div>
+        <p class="instructor-bio">[INSTRUCTOR 2 BIO]</p>
       </div>
     </article>
 
-    <!-- INSTRUCTOR 3: Coach -->
     <article class="instructor-card reveal">
-      <!-- SWAP: Replace this div with <img src="[photo]" alt="Coach [NAME]"> -->
-      <div class="instructor-photo" aria-label="[INSTRUCTOR PHOTO]">[INSTRUCTOR PHOTO]</div>
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[INSTRUCTOR 3 NAME]" style="width:100%;height:300px;object-fit:cover;display:block"> -->
+      <div class="instructor-photo">[INSTRUCTOR 3 PHOTO]</div>
       <div class="instructor-info">
-        <span class="instructor-badge coach">Coach</span>
-        <div class="instructor-name">Coach [NAME]</div>
-        <div class="instructor-title">[TITLE / RANK]</div>
-        <p class="instructor-bio">[BIO]</p>
+        <div class="instructor-name">[INSTRUCTOR 3 NAME]</div>
+        <div class="instructor-title">[INSTRUCTOR 3 TITLE]</div>
+        <p class="instructor-bio">[INSTRUCTOR 3 BIO]</p>
       </div>
     </article>
 
-    <!-- INSTRUCTOR 4 (optional): Uncomment to add a 4th instructor card -->
-    <!--
     <article class="instructor-card reveal">
-      <div class="instructor-photo" aria-label="[INSTRUCTOR PHOTO]">[INSTRUCTOR PHOTO]</div>
+      <!-- SWAP: Replace with <img src="images/[photo].webp" alt="[INSTRUCTOR 4 NAME]" style="width:100%;height:300px;object-fit:cover;display:block"> -->
+      <div class="instructor-photo">[INSTRUCTOR 4 PHOTO]</div>
       <div class="instructor-info">
-        <span class="instructor-badge coach">Coach</span>
-        <div class="instructor-name">Coach [NAME]</div>
-        <div class="instructor-title">[TITLE / RANK]</div>
-        <p class="instructor-bio">[BIO]</p>
+        <div class="instructor-name">[INSTRUCTOR 4 NAME]</div>
+        <div class="instructor-title">[INSTRUCTOR 4 TITLE]</div>
+        <p class="instructor-bio">[INSTRUCTOR 4 BIO]</p>
       </div>
     </article>
-    -->
 
   </div>
 </section>
