@@ -293,3 +293,11 @@ school name present, all URLs/images valid).
 it yourself). After push → Cloudflare redeploys → I'll confirm the tag is live at
 `https://www.sagataekwondo.com` → then you click **Verify** in GSC for that URL-prefix property.
 **Values to copy:** none.
+
+## 2026-07-08 06:25 UTC — Saga pushed and live
+**Done:** ✅ Joe approved + pushed (`saga-taekwondo` commit `88e2313`). Cloudflare redeployed;
+confirmed the verification meta tag is **LIVE** at https://www.sagataekwondo.com.
+**Need from Joe:** Go to the GSC `https://www.sagataekwondo.com` **URL-prefix** property and click
+**Verify** now. Relay back: verified or error. Separately, Moore's DNS-TXT steps are still pending
+whenever Joe's ready for those (Domain property, DreamHost) — see the 06:08 UTC entry above.
+**Values to copy:** none.
