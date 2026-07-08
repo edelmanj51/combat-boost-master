@@ -301,3 +301,24 @@ confirmed the verification meta tag is **LIVE** at https://www.sagataekwondo.com
 **Verify** now. Relay back: verified or error. Separately, Moore's DNS-TXT steps are still pending
 whenever Joe's ready for those (Domain property, DreamHost) — see the 06:08 UTC entry above.
 **Values to copy:** none.
+
+## 2026-07-08 06:30 UTC — Moore's verified
+**Done:** ✅ **moores-karate verified** (`mooreskaratelodi.com`, Domain property via DreamHost
+DNS-TXT). **8 sites now verified & collecting GSC data:**
+  1. up-top-ma — uptopmartialarts.com (Domain / Cloudflare TXT)
+  2. tiger-paw-ma — tigerpawma.com (Domain / Cloudflare TXT)
+  3. north-georgia-martial-arts — northgeorgiamartialarts.com (Domain / Cloudflare TXT)
+  4. ramires-ata — ramiresatabba.com (Domain / Cloudflare TXT)
+  5. shorin-ryu-karate-palestine — shorinryuwakidokai.com (Domain / Cloudflare TXT)
+  6. agoge-krav-maga — www.agogekm.com (URL-prefix / meta tag)
+  7. saga-taekwondo — www.sagataekwondo.com (URL-prefix / meta tag)
+  8. moores-karate — mooreskaratelodi.com (Domain / DreamHost TXT)
+**Need from Joe:** Nothing right now on the ready pool — all 8 sites that actually serve our
+build are verified. Remaining workstream is the 7 truly blocked sites (domain doesn't serve our
+build yet): crestview-ata, dublin-ata, kick-start-ma-atlanta,
+aamerican-colleges-jiu-jitsu-karate-henrico, grand-master-wons-taekwondo-oklahoma-city,
+camal-and-cruz, champion-sport-karate-papillion. Of those, only Crestview + Dublin are in scope
+(the other 5 aren't live yet per Joe). Crestview + Dublin are on hold per Joe's call (both have
+active email — Crestview: mx.ipage.com, Dublin: Google Workspace — repointing needs MX preserved
+first). Say the word when ready to revisit.
+**Values to copy:** none.
