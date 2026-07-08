@@ -322,3 +322,38 @@ camal-and-cruz, champion-sport-karate-papillion. Of those, only Crestview + Dubl
 active email — Crestview: mx.ipage.com, Dublin: Google Workspace — repointing needs MX preserved
 first). Say the word when ready to revisit.
 **Values to copy:** none.
+
+## 2026-07-08 06:40 UTC — Crestview + Dublin DNS repoint, GO
+**Done:** Joe corrected the record — he personally owns both `kickwithata.com` and
+`dublinata.com` (not client domains), and the email on them is his own or irrelevant. Prior
+email-risk hold is lifted. Joe chose **move NS to Cloudflare** (cleanest, unlocks DNS-TXT
+verification, consolidates management) over CNAME-at-current-host.
+**Need from Joe (browser) — do these steps PER domain, can start both in parallel:**
+  Use the SAME Cloudflare account that hosts the Pages projects.
+  1. Cloudflare dashboard → **Add a site** → enter the domain (`kickwithata.com` first pass,
+     then `dublinata.com`) → Free plan.
+  2. Cloudflare auto-scans existing DNS records → **review what it imported** (it'll list the
+     current A/MX/TXT records it found at dojoservers.com / domain.com). Since email doesn't
+     matter here, no need to double check MX — just glance for anything obviously missing, then
+     continue.
+  3. Cloudflare shows **2 nameservers** to use (e.g. `x.ns.cloudflare.com`, `y.ns.cloudflare.com`
+     — exact values are unique per domain, Cloudflare generates them on this step).
+  4. Go to your **registrar** for each domain and replace the current nameservers:
+     - `kickwithata.com`: currently `ns1.dojoservers.com` / `ns2.dojoservers.com` → replace with
+       the 2 Cloudflare ones from step 3.
+     - `dublinata.com`: currently `ns1.domain.com` / `ns2.domain.com` → replace with the 2
+       Cloudflare ones from step 3.
+  5. Wait for Cloudflare to email "site is now active" (usually minutes, can take up to 24h for
+     full propagation).
+  6. In Cloudflare, open the Pages project (`crestview-ata` for kickwithata.com, `dublin-ata` for
+     dublinata.com) → **Custom domains** tab → **Set up a domain** → add both the apex
+     (`kickwithata.com`) and `www.kickwithata.com` (same pattern for dublinata.com). Cloudflare
+     auto-creates the DNS records once the zone is active.
+  7. Confirm the domain now loads OUR build (school name should be correct, no ATA/old-site
+     branding) — relay back once you see it, and I'll do a `server: cloudflare` + title check
+     from here too.
+  Then (my side): once confirmed live, I give you the DNS-TXT GSC verification steps for both
+  (same pattern as up-top-ma/tiger-paw/etc — Domain property, TXT record at Cloudflare, since
+  DNS is now on Cloudflare for both).
+**Values to copy:** the 2 Cloudflare nameservers per domain (paste back if you want me to
+sanity-check before you update the registrar).
