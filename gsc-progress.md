@@ -413,3 +413,14 @@ push? Only remaining workstream after this is the 5 not-live-yet sites Joe alrea
 (kick-start, american-colleges, gmwons, camal-and-cruz, champion) — no action needed until those
 go live.
 **Values to copy:** none.
+
+## 2026-07-08 07:35 UTC — Canonical cleanup pushed, all live sites now fully clean
+**Done:** ✅ Joe approved + pushed both. `crestview-ata` commit `c65c871`, `dublin-ata` commit
+`412d42a` — fixed `DOMAIN`/`SITE_URL`/canonical from the wrong domains (`kickwithata.com`,
+`dublinata.com`) to the real live ones (`crestviewmartialarts.com`, `dublinatamartialarts.com`).
+Confirmed both redeployed and live: `<link rel="canonical">` now correctly self-references on
+both sites. GSC rollout is fully wrapped for all 10 live sites — verified, collecting data, and
+canonical-clean. Remaining 5 sites (kick-start, american-colleges, gmwons, camal-and-cruz,
+champion) stay out of scope until Joe says they're live.
+**Need from Joe:** Nothing — rollout complete.
+**Values to copy:** none.
