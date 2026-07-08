@@ -113,3 +113,10 @@ need explicit approval). Reply "approved" (or push it yourself). After I push �
 redeploys → I confirm the tag is live at https://www.agogekm.com → THEN you click **Verify** in
 GSC for the `https://www.agogekm.com` URL-prefix property.
 **Values to copy:** none.
+
+## 2026-07-08 05:29 UTC
+**Done:** ✅ Agoge approved + pushed (`agoge-krav-maga` commit `d2fb30b`). Cloudflare redeployed;
+confirmed the verification meta tag is **LIVE** at https://www.agogekm.com (~60s after push).
+**Need from Joe:** Go back to the GSC `https://www.agogekm.com` **URL-prefix** property and click
+**Verify** now. Relay back: verified or error.
+**Values to copy:** none.
