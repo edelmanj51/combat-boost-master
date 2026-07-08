@@ -177,3 +177,31 @@ Investigated the remaining 4. **Two are NOT actually blocked — they're already
 **Need from Joe:** Decide next move — (a) verify Moore's + Saga now (they're ready), and/or
 (b) start repointing DNS for Crestview + Dublin (registrar/DNS action on domains you own).
 **Values to copy:** none.
+
+## 2026-07-08 05:43 UTC — starting Crestview + Dublin DNS repoint
+Plan: move each domain's nameservers to Cloudflare, attach to its Pages project, then verify in
+GSC via DNS-TXT (same as the other Cloudflare-DNS sites). Chose NS-move over a CNAME-at-current-
+host because (1) Crestview's DNS is delegated to ATA's vendor `dojoservers.com` (Joe likely can't
+edit records there — only NS at the registrar), (2) it covers apex + www, (3) it unlocks the easy
+DNS-TXT verification. Pages builds are already live & correct at `crestview-ata.pages.dev` and
+`dublin-ata.pages.dev`, so sites go live the moment DNS points there.
+
+⚠️ SAFETY CHECK FIRST: moving NS moves ALL DNS. If either domain receives email (MX), we must copy
+those records into Cloudflare or email breaks. Dublin = parked (low risk). Crestview = may have
+ATA email. **Waiting on Joe to confirm whether either domain receives email before switching NS.**
+
+**Need from Joe (browser) — do these steps PER domain (start both; propagation is the slow part):**
+  Use the SAME Cloudflare account that hosts the Pages projects.
+  1. Cloudflare → **Add a site** → enter the domain (`kickwithata.com` / `dublinata.com`) → Free plan.
+  2. Cloudflare auto-scans existing DNS → **review the imported records** (keep MX/email, TXT/SPF,
+     any subdomains). Tell me what it lists if unsure.
+  3. Cloudflare shows **2 nameservers** (e.g. `x.ns.cloudflare.com`). At your **registrar**, replace
+     the current nameservers:
+       - kickwithata.com: currently `ns1/ns2.dojoservers.com` → replace with Cloudflare's.
+       - dublinata.com: currently `ns1/ns2.domain.com` → replace with Cloudflare's.
+  4. Wait for Cloudflare to email "active" (minutes–24h).
+  5. Pages project (`crestview-ata` / `dublin-ata`) → **Custom domains** → **Set up a domain** →
+     add both the apex and `www`. Cloudflare auto-creates the records.
+  6. Confirm the domain loads OUR build; relay back → then I'll give the GSC DNS-TXT step.
+**Values to copy:** Cloudflare will show the 2 nameservers per domain (you enter those at the
+registrar). Relay them back if you want me to sanity-check.
