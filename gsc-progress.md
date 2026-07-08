@@ -142,3 +142,38 @@ crestview, dublin, moores, saga, kick-start, american-colleges, gmwons, camal-an
 - SEO bug to fix on next rebuild: shorin-ryu's live homepage has an EMPTY `<title>`.
 - `GSC_VERIFICATION` token now lives in the v5 template AND agoge's repo → future meta-tag
   verifications are a one-line `client-data.yaml` change.
+
+## 2026-07-08 05:40 UTC — deep-dive on 4 sites (Crestview, Dublin, Moore's, Saga)
+Joe scoped out kick-start / american-colleges / gmwons / camal / champion (not live — skip).
+Investigated the remaining 4. **Two are NOT actually blocked — they're already live on www.**
+
+- **Crestview — TRULY BLOCKED (DNS not pointed).** Our build is live & correct at
+  `crestview-ata.pages.dev`. But `kickwithata.com` (apex + www) resolves to `72.52.145.122`
+  (Apache) = the OLD ATA corporate site ("Learn Martial Arts in Niceville… | ATA Martial Arts"),
+  nameservers still `dojoservers.com` (ATA's vendor). You own the domain, but its DNS is still
+  delegated to ATA's platform, so it serves their site. **Fix:** point `kickwithata.com` at the
+  `crestview-ata` Pages project (move NS to Cloudflare, or add records at current DNS).
+
+- **Dublin — TRULY BLOCKED (domain parked, never pointed).** Build live & correct at
+  `dublin-ata.pages.dev`. `dublinata.com` (apex + www) resolves to `208.91.197.27` (openresty,
+  "403 Forbidden") = a registrar parking/default page via Domain.com nameservers. Domain was
+  never pointed at the Pages project. **Fix:** configure DNS at Domain.com (or move to
+  Cloudflare) → `dublin-ata` Pages project.
+
+- **Moore's — NOT BLOCKED. Live on www.** `www.mooreskaratelodi.com` is CNAME→
+  `moores-karate.pages.dev`, Cloudflare-served, our clean build (12 markers, no token leaks).
+  Earlier "blocked" was a false alarm — I'd only probed the apex, which is dead (`64.90.49.155`,
+  DreamHost default, no site). Only defect: apex doesn't redirect to www. Repo is INCOMPLETE
+  (missing `client-data.yaml` + `qc.js`) so a rebuild isn't clean → verify via **DNS-TXT at
+  DreamHost** (Domain property covers www; no repo work).
+
+- **Saga — NOT BLOCKED. Live on www.** `www.sagataekwondo.com` is CNAME→
+  `saga-taekwondo.pages.dev`, Cloudflare-served, our clean build (9 markers, no leaks). Apex
+  `sagataekwondo.com` points to `192.0.2.1` (RFC-5737 documentation IP — a non-routable
+  placeholder) = dead. DNS is on Wix. Also a canonical bug: site's canonical says apex
+  `sagataekwondo.com` but the live site is www. Verify via **meta-tag token** (saga repo is
+  complete, agoge-style) OR DNS-TXT at Wix. Fix canonical → www on next rebuild.
+
+**Need from Joe:** Decide next move — (a) verify Moore's + Saga now (they're ready), and/or
+(b) start repointing DNS for Crestview + Dublin (registrar/DNS action on domains you own).
+**Values to copy:** none.
