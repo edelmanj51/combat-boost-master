@@ -281,3 +281,15 @@ until Joe says go.
   Then I do phase 2 (wire token into saga-taekwondo repo, rebuild, qc.js, show diff for approval)
   and phase 3 (confirm live post-push, then you click Verify).
 **Values to copy:** Moore's TXT value (if it fails) + Saga's `google-site-verification` content value.
+
+## 2026-07-08 06:15 UTC — Saga phase 2 complete
+**Done:** Joe supplied Saga's verification content value. Wired `GSC_VERIFICATION` into
+`saga-taekwondo` repo (added the IF-block token to source `index.html`, set the value in
+`client-data.yaml`), rebuilt, ran `qc.js` → **17/17 PASSED**. Diff is exactly 3 lines (source
+token, client-data value, dist meta tag) — same minimal pattern as agoge. No visual change
+(head-only tag), so no screenshot needed — verified instead via qc.js output (no token leaks,
+school name present, all URLs/images valid).
+**Need from Joe:** **Approve the push of the `saga-taekwondo` repo.** Reply "approved" (or push
+it yourself). After push → Cloudflare redeploys → I'll confirm the tag is live at
+`https://www.sagataekwondo.com` → then you click **Verify** in GSC for that URL-prefix property.
+**Values to copy:** none.
