@@ -23,3 +23,16 @@ Google account.
   4. Back in GSC → **Verify** (retry after ~5 min if it fails).
   Then relay back: the exact TXT value used + whether it said Verified or an error.
 **Values to copy:** (none from me yet — Google generates the TXT value; paste it back here.)
+
+## 2026-07-08 05:04 UTC
+**Done:** ✅ **up-top-ma verified** (`uptopmartialarts.com`, Domain property via Cloudflare TXT).
+1 of 4 Option-A sites done. Sitemap submission for it is queued for after all 4 are verified.
+**Need from Joe:** Verify the next Option-A site, **tiger-paw-ma**, same steps (DNS-only, so its
+missing local build doesn't matter here):
+  1. GSC → Add property → **Domain** box → enter `tigerpawma.com` (no https, no www, no slash) → Continue.
+  2. Copy the TXT value Google shows (`google-site-verification=...`).
+  3. Cloudflare → select `tigerpawma.com` → DNS → Add record: Type **TXT**, Name **@**,
+     Content = the value, TTL Auto → Save.
+  4. Back in GSC → **Verify** (retry after ~5 min if it fails).
+  Relay back: verified or error.
+**Values to copy:** (Google generates the TXT value; paste it back if anything fails.)
