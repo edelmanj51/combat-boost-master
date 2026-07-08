@@ -36,3 +36,15 @@ missing local build doesn't matter here):
   4. Back in GSC → **Verify** (retry after ~5 min if it fails).
   Relay back: verified or error.
 **Values to copy:** (Google generates the TXT value; paste it back if anything fails.)
+
+## 2026-07-08 05:06 UTC
+**Done:** ✅ **tiger-paw-ma verified** (`tigerpawma.com`, Domain property via Cloudflare TXT).
+2 of 4 Option-A sites done.
+**Need from Joe:** Verify the next Option-A site, **north-georgia-martial-arts**, same steps:
+  1. GSC → Add property → **Domain** box → enter `northgeorgiamartialarts.com` (no https, no www, no slash) → Continue.
+  2. Copy the TXT value Google shows (`google-site-verification=...`).
+  3. Cloudflare → select `northgeorgiamartialarts.com` → DNS → Add record: Type **TXT**, Name **@**,
+     Content = the value, TTL Auto → Save.
+  4. Back in GSC → **Verify** (retry after ~5 min if it fails).
+  Relay back: verified or error.
+**Values to copy:** (Google generates the TXT value; paste it back if anything fails.)
