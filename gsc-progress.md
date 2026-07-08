@@ -48,3 +48,20 @@ missing local build doesn't matter here):
   4. Back in GSC → **Verify** (retry after ~5 min if it fails).
   Relay back: verified or error.
 **Values to copy:** (Google generates the TXT value; paste it back if anything fails.)
+
+## 2026-07-08 05:10 UTC
+**Done:** ✅ **All 4 Option-A sites verified** (up-top-ma, tiger-paw-ma, north-georgia,
+ramires-ata) as GSC Domain properties. 🎉 They are now collecting data — no sitemap needed for
+that. BUT sitemap submission is **blocked**: none of the 4 actually serve a sitemap
+(`dist/sitemap.xml` missing on all; live sites return homepage HTML + 200 for any unknown path,
+which GSC rejects as invalid). The build does NOT generate sitemaps — they'd have to be created,
+committed, and pushed per client repo (needs qc.js + per-push approval; tiger-paw has no local
+build at all).
+**Need from Joe:** Decide how to handle sitemaps (see options below). Nothing to do in the
+browser right now — the 4 properties are live and collecting.
+  - Option A (recommended): skip sitemaps for now; data flows regardless. Revisit later.
+  - Option B: I generate sitemap.xml + robots.txt for all 4, run QC, and show you for approval
+    to push; then you submit `/sitemap.xml` in each GSC property.
+  - Also pending: 2 uncertain sites (shorin, champion) + 8 blocked sites (domain still serves
+    old site). Those are separate workstreams when ready.
+**Values to copy:** none.
