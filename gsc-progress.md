@@ -101,3 +101,15 @@ builds clean + `qc.js` PASSES (17 checks), so its meta-tag push will be low-risk
   screenshot review, and show you for approval to push. (phase 3): after push + redeploy I
   confirm the tag is live, then you click Verify.
 **Values to copy:** Joe brings back agoge's `google-site-verification` content value.
+
+## 2026-07-08 05:28 UTC
+**Done:** Agoge phase 2 complete. Wired the `GSC_VERIFICATION` token into agoge's repo, set the
+value (`PIRSNroKr...YGx8`), rebuilt, ran `qc.js` → **17/17 PASSED**. Diff is exactly 3 lines
+(source index.html token, client-data.yaml value, dist/index.html meta tag) — nothing else
+changed. No visual/screenshot review needed (head-only meta tag, zero rendered change);
+verified instead that the diff contains only the tag, school name present, no token leaks.
+**Need from Joe:** **Approve the push of the `agoge-krav-maga` client repo** (client-repo pushes
+need explicit approval). Reply "approved" (or push it yourself). After I push → Cloudflare
+redeploys → I confirm the tag is live at https://www.agogekm.com → THEN you click **Verify** in
+GSC for the `https://www.agogekm.com` URL-prefix property.
+**Values to copy:** none.
