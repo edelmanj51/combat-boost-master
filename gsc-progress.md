@@ -120,3 +120,25 @@ confirmed the verification meta tag is **LIVE** at https://www.agogekm.com (~60s
 **Need from Joe:** Go back to the GSC `https://www.agogekm.com` **URL-prefix** property and click
 **Verify** now. Relay back: verified or error.
 **Values to copy:** none.
+
+## 2026-07-08 05:31 UTC — MILESTONE: all ready sites verified 🎉
+**Done:** ✅ **agoge-krav-maga verified** (`https://www.agogekm.com`, URL-prefix, HTML meta tag).
+**All 6 ready sites are now verified and collecting GSC data:**
+  1. up-top-ma — uptopmartialarts.com (Domain / Cloudflare TXT)
+  2. tiger-paw-ma — tigerpawma.com (Domain / Cloudflare TXT)
+  3. north-georgia-martial-arts — northgeorgiamartialarts.com (Domain / Cloudflare TXT)
+  4. ramires-ata — ramiresatabba.com (Domain / Cloudflare TXT)
+  5. shorin-ryu-karate-palestine — shorinryuwakidokai.com (Domain / Cloudflare TXT)
+  6. agoge-krav-maga — www.agogekm.com (URL-prefix / meta tag)
+**Need from Joe:** Nothing right now — phase 1 (all sites already serving our build) is DONE.
+When ready, next workstream is the **9 blocked sites** (custom domain still serves the client's
+OLD site — must be pointed at the Cloudflare Pages project before GSC is meaningful):
+crestview, dublin, moores, saga, kick-start, american-colleges, gmwons, camal-and-cruz, champion.
+**Values to copy:** none.
+
+### Notes / carry-forward
+- Data lag: GSC has ~2-day lag and NO backfill — data accrues from each verification date forward.
+- Sitemaps: intentionally skipped (not required for data). Build does not generate them.
+- SEO bug to fix on next rebuild: shorin-ryu's live homepage has an EMPTY `<title>`.
+- `GSC_VERIFICATION` token now lives in the v5 template AND agoge's repo → future meta-tag
+  verifications are a one-line `client-data.yaml` change.
