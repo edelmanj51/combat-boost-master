@@ -205,3 +205,79 @@ ATA email. **Waiting on Joe to confirm whether either domain receives email befo
   6. Confirm the domain loads OUR build; relay back → then I'll give the GSC DNS-TXT step.
 **Values to copy:** Cloudflare will show the 2 nameservers per domain (you enter those at the
 registrar). Relay them back if you want me to sanity-check.
+
+## 2026-07-08 06:00 UTC — re-verified live state; correction on Dublin's email risk
+Re-ran live DNS/HTTP checks on all 4 (Crestview, Dublin, Moore's, Saga) before resuming — nothing
+had drifted since the last session except one important correction:
+
+- **Crestview (`kickwithata.com`) — still truly blocked.** NS still `dojoservers.com`, apex still
+  Apache/ATA's site. **Has an active MX record: `mx.ipage.com`.** Confirms the earlier flag — this
+  domain receives email and MX must be copied into Cloudflare before any NS switch.
+- **Dublin (`dublinata.com`) — still truly blocked, but the "low risk / parked" call was WRONG.**
+  NS still `domain.com`, apex still openresty/403. It DOES have an active MX record —
+  **`smtp.google.com` (Google Workspace)** — meaning someone currently receives email at this
+  domain. Previous session assumed "parked = low risk" without actually checking MX; that was an
+  error. Treat Dublin the same as Crestview: **do not move nameservers until the Google Workspace
+  MX/TXT (SPF/DKIM) records are captured and re-created in Cloudflare**, or mail will start
+  bouncing/silently dropping immediately on cutover.
+- **Moore's — reconfirmed NOT blocked.** `www.mooreskaratelodi.com` → CNAME `moores-karate.pages.dev`,
+  `server: cloudflare`, still serving our build. Ready for GSC now (Domain property, DNS-TXT at
+  DreamHost — covers www since GSC Domain properties match all hosts).
+- **Saga — reconfirmed NOT blocked.** `www.sagataekwondo.com` → CNAME `saga-taekwondo.pages.dev`,
+  `server: cloudflare`, still serving our build. Ready for GSC now (meta-tag token, repo is clean —
+  or DNS-TXT at Wix if Joe prefers Domain property).
+
+Updated `gsc-setup-handoff.md` TL;DR + per-site table to move Moore's/Saga out of "blocked" into
+"ready" (they were miscategorized as blocked from the very first pass, before the deep-dive
+corrected it — table just hadn't been synced).
+
+**Need from Joe — two independent decisions, can go in parallel:**
+1. **Moore's + Saga:** want me to proceed with GSC verification now? For Moore's I'd give you the
+   DNS-TXT steps (DreamHost). For Saga, your call: meta-tag token (I push a 3-line diff to the
+   `saga-taekwondo` repo, same low-risk pattern as agoge, needs your push approval) or DNS-TXT at
+   Wix (no repo change, but Wix's DNS UI can be finicky — your call which you'd rather do).
+2. **Crestview + Dublin DNS repoint:** before touching either domain's nameservers, I need the
+   current MX/SPF/DKIM records preserved. Two options:
+   - You paste me whatever you can see in each domain's current DNS panel (dojoservers.com for
+     Crestview, domain.com for Dublin) and I'll build the Cloudflare-side records to match before
+     you flip NS.
+   - Or, safer/slower: at each *current* DNS host, just add a CNAME (or A record, if that host
+     doesn't support CNAME at apex) pointing the site to the Pages project directly — no NS move,
+     no email risk at all, since MX stays untouched at the original host. This is more manual
+     per-registrar work but sidesteps the email risk entirely. Given both domains have live email,
+     I'd lean toward this option unless you want DNS fully consolidated onto Cloudflare anyway.
+**Values to copy:** none yet — waiting on your call on both items above.
+
+## 2026-07-08 06:05 UTC — Joe's decisions
+**Done:** Joe decided: (1) proceed with Moore's + Saga verification now. (2) Crestview + Dublin
+DNS repoint — **not yet**, holding off (email-risk domains, no rush). Leaving those two BLOCKED
+until Joe says go.
+**Need from Joe:** Moore's GSC steps below (Domain property, DreamHost DNS-TXT). Saga's method
+(meta-tag repo push vs DNS-TXT at Wix) still needs Joe's pick — asking next.
+**Values to copy:** none yet.
+
+## 2026-07-08 06:08 UTC — Moore's + Saga kickoff
+**Done:** Joe picked meta-tag for Saga (agoge-style repo push).
+**Need from Joe (two independent things, do in either order):**
+
+**A. Moore's — Domain property via DreamHost DNS-TXT:**
+  1. GSC → Add property → **Domain** box → enter `mooreskaratelodi.com` (no https/www/slash) → Continue.
+  2. Copy the TXT value Google shows (`google-site-verification=...`).
+  3. DreamHost → domain's DNS panel → Add record: Type **TXT**, Name **@** (or blank/root,
+     DreamHost's UI varies), Content = the value, TTL default → Save.
+  4. Back in GSC → **Verify** (retry after ~5–30 min if it fails — DreamHost DNS can be slower to
+     propagate than Cloudflare).
+  Relay back: verified or error.
+
+**B. Saga — phase 1 (browser, get the content value):**
+  1. GSC → Add property → **URL prefix** box (NOT Domain) → enter exactly
+     `https://www.sagataekwondo.com` (must be www — that's what's actually live; the site's own
+     canonical tag wrongly says apex, ignore it) → Continue.
+  2. In the methods list choose **HTML tag**.
+  3. Google shows `<meta name="google-site-verification" content="XXXX" />`. Copy ONLY the
+     `XXXX` content value and relay it to me.
+  4. **Do NOT click Verify yet** — same as agoge, I need to build the tag into the repo, get your
+     push approval, and confirm it's live first.
+  Then I do phase 2 (wire token into saga-taekwondo repo, rebuild, qc.js, show diff for approval)
+  and phase 3 (confirm live post-push, then you click Verify).
+**Values to copy:** Moore's TXT value (if it fails) + Saga's `google-site-verification` content value.
