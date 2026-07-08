@@ -388,3 +388,28 @@ per hard rules on client-repo changes.
      `SITE_URL` in both repos to the real domains, rebuild, run qc.js, and show you the diff for
      approval to push?
 **Values to copy:** none.
+
+## 2026-07-08 07:20 UTC — Crestview + Dublin verified, all 10 live sites now collecting
+**Done:** ✅ **crestview-ata verified** (`crestviewmartialarts.com`, Domain property / Cloudflare
+TXT). ✅ **dublin-ata verified** (`dublinatamartialarts.com`, Domain property / Cloudflare TXT).
+Joe self-served both (added properties, set TXT records, clicked Verify) without needing the
+step-by-step relay this time. **10 of 10 live sites are now verified and collecting GSC data:**
+  1. up-top-ma — uptopmartialarts.com
+  2. tiger-paw-ma — tigerpawma.com
+  3. north-georgia-martial-arts — northgeorgiamartialarts.com
+  4. ramires-ata — ramiresatabba.com
+  5. shorin-ryu-karate-palestine — shorinryuwakidokai.com
+  6. agoge-krav-maga — www.agogekm.com
+  7. saga-taekwondo — www.sagataekwondo.com
+  8. moores-karate — mooreskaratelodi.com
+  9. crestview-ata — crestviewmartialarts.com
+  10. dublin-ata — dublinatamartialarts.com
+Explained canonical cleanup to Joe (crestview/dublin repos' built `<link rel="canonical">` still
+says the wrong domain — kickwithata.com / dublinata.com — cosmetic/SEO issue, doesn't affect GSC
+data collection since Domain properties aren't tied to canonical tags).
+**Need from Joe:** Decide on canonical cleanup — want me to fix `DOMAIN`/`SITE_URL` in both repos'
+`project_specs.yaml` + `client-data.yaml`, rebuild, run qc.js, and show the diff for approval to
+push? Only remaining workstream after this is the 5 not-live-yet sites Joe already scoped out
+(kick-start, american-colleges, gmwons, camal-and-cruz, champion) — no action needed until those
+go live.
+**Values to copy:** none.
