@@ -65,3 +65,21 @@ browser right now — the 4 properties are live and collecting.
   - Also pending: 2 uncertain sites (shorin, champion) + 8 blocked sites (domain still serves
     old site). Those are separate workstreams when ready.
 **Values to copy:** none.
+
+## 2026-07-08 05:13 UTC
+**Done:** Sitemaps = SKIP for now (Joe's call). Resolved the 2 uncertain sites:
+  - ✅ **shorin-ryu** (`shorinryuwakidokai.com`) IS our build (cloudflare server + our template
+    markers, Cloudflare DNS) → **ready, Option A**. Flag: its live page has an EMPTY `<title>`
+    (SEO bug — fix on next rebuild; does not block GSC).
+  - ❌ **champion** (`championsportkarate.com`) is NOT our build (different 138 KB site proxied
+    via Cloudflare) → **moved to BLOCKED** (domain must be pointed at the Pages project).
+  Ready pool now: 4 verified + shorin-ryu (A) + agoge (B).
+**Need from Joe:** Verify **shorin-ryu** as a Domain property, same steps as the others:
+  1. GSC → Add property → **Domain** box → enter `shorinryuwakidokai.com` (no https/www/slash) → Continue.
+  2. Copy the TXT value (`google-site-verification=...`).
+  3. Cloudflare → select `shorinryuwakidokai.com` → DNS → Add record: Type **TXT**, Name **@**,
+     Content = the value, TTL Auto → Save.
+  4. Back in GSC → **Verify** (retry after ~5 min if it fails).
+  Relay back: verified or error. (After this, agoge is the last ready site — Option B/meta tag,
+  which needs a client-repo push + approval; I'll lay out its steps then.)
+**Values to copy:** none from me — Google generates the TXT value.
