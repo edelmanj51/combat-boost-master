@@ -357,3 +357,34 @@ verification, consolidates management) over CNAME-at-current-host.
   DNS is now on Cloudflare for both).
 **Values to copy:** the 2 Cloudflare nameservers per domain (paste back if you want me to
 sanity-check before you update the registrar).
+
+## 2026-07-08 07:10 UTC — MAJOR CORRECTION: Crestview + Dublin were never blocked
+**Done:** Joe corrected the domains — the real live domains are `crestviewmartialarts.com` and
+`dublinatamartialarts.com`, NOT `kickwithata.com` / `dublinata.com` (those were simply wrong
+values in each repo's `project_specs.yaml` / `client-data.yaml`, left over from initial setup).
+Checked both real domains:
+  - **crestviewmartialarts.com** — already on Cloudflare NS (kipp/venus.ns.cloudflare.com),
+    `server: cloudflare`, byte-identical to `crestview-ata.pages.dev`, no token leaks, title
+    matches. **Fully live and correct — was never blocked.**
+  - **dublinatamartialarts.com** — same story: Cloudflare NS, `server: cloudflare`,
+    byte-identical to `dublin-ata.pages.dev` (only diff is Cloudflare's automatic email-obfuscation
+    rewrite on mailto links, a proxy feature not a content issue), no token leaks, title matches.
+    **Fully live and correct — was never blocked.**
+Every prior finding in this file and in `gsc-setup-handoff.md` about these two being
+"blocked/needs DNS repoint/has email risk" was investigating the WRONG domain. No DNS work is
+needed for either site — they just need GSC verification, and since both are already on
+Cloudflare NS, it's the same easy DNS-TXT Domain-property pattern as up-top-ma etc.
+**Outstanding cleanup (not urgent, flagging for Joe):** both repos' `project_specs.yaml` /
+`client-data.yaml` / built canonical tag still reference the wrong domain (`kickwithata.com`,
+`dublinata.com`). This means the site's own `<link rel="canonical">` points at a domain that
+isn't the one actually serving it — worth fixing on next rebuild for SEO cleanliness, but
+doesn't block GSC. I have NOT touched these files yet — will only do so with explicit approval,
+per hard rules on client-repo changes.
+**Need from Joe:** Two independent things:
+  1. **GSC verification for both** — want me to lay out the DNS-TXT steps for
+     `crestviewmartialarts.com` and `dublinatamartialarts.com` now (same pattern as up-top-ma,
+     tiger-paw, etc.)?
+  2. **Canonical/DOMAIN fix** — want me to correct `project_specs.yaml` / `client-data.yaml` /
+     `SITE_URL` in both repos to the real domains, rebuild, run qc.js, and show you the diff for
+     approval to push?
+**Values to copy:** none.
