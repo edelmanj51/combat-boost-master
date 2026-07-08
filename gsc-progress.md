@@ -83,3 +83,21 @@ browser right now — the 4 properties are live and collecting.
   Relay back: verified or error. (After this, agoge is the last ready site — Option B/meta tag,
   which needs a client-repo push + approval; I'll lay out its steps then.)
 **Values to copy:** none from me — Google generates the TXT value.
+
+## 2026-07-08 05:25 UTC
+**Done:** ✅ **shorin-ryu verified** (`shorinryuwakidokai.com`, Domain property). **5 sites now
+verified & collecting** (up-top, tiger-paw, north-georgia, ramires, shorin). Confirmed agoge
+builds clean + `qc.js` PASSES (17 checks), so its meta-tag push will be low-risk. Starting agoge
+(Option B — HTML meta tag). Its canonical is `https://www.agogekm.com`.
+**Need from Joe (agoge, phase 1 — browser):**
+  1. GSC → Add property → **URL prefix** box (the RIGHT box, NOT Domain) → enter exactly
+     `https://www.agogekm.com` → Continue.
+  2. In the methods list choose **HTML tag**.
+  3. Google shows `<meta name="google-site-verification" content="XXXX" />`. Copy ONLY the
+     content value (the `XXXX`) and relay it to me.
+  4. **Do NOT click Verify yet** — the tag isn't live until I build it in + you approve the push
+     + Cloudflare redeploys. I'll tell you when to click Verify.
+  Then (phase 2, me): I wire the token into agoge's repo, set the value, rebuild, run qc.js,
+  screenshot review, and show you for approval to push. (phase 3): after push + redeploy I
+  confirm the tag is live, then you click Verify.
+**Values to copy:** Joe brings back agoge's `google-site-verification` content value.
